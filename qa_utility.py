@@ -7,6 +7,7 @@
 
 import os
 import platform
+import config
 
 def clear_screen():
 
@@ -18,29 +19,34 @@ def clear_screen():
 def menu():
 
     while True:
-        print("--------------------")
-        print("QA Utility")
-        print("--------------------")
-        print("1. Installation")
-        print("2. Smoke Test")
-        print("3. Regression Test")
-        print("4. Quit")
-        print("5. Testing")
-        choice = int(input("Enter your choice: "))
-        clear_screen()
-        
-        if choice == 1:
-            print("You choose to install new SAA")
-        elif choice == 2:
-            print("You choose to run smoke test")
-        elif choice == 3:
-            print("You choose to regression test")  
-        elif choice == 4:
-            print("Bye")
-            break
-            exit
-        else:
-            print("Invalid choice. Enter 1-3")
+        try:
+            print("--------------------")
+            print("QA Utility")
+            print("--------------------")
+            print("1. Installation")
+            print("2. Smoke Test")
+            print("3. Regression Test")
+            print("4. Quit")
+            print("5. Testing")
+            choice = int(input("Enter your choice: "))
+            clear_screen()
+
+            if choice == 1:
+                print("You choose to install new SAA")
+            elif choice == 2:
+                print("You choose to run smoke test")
+            elif choice == 3:
+                print("You choose to regression test")  
+            elif choice == 4:
+                print("Bye")
+                break
+                exit
+            else:
+                print("Invalid choice. Enter 1-3")
+        except ValueError:
+                clear_screen()
+                print("You put in invalid option. Try again")
+                
 
 ## Main routine
 menu()
