@@ -25,25 +25,22 @@ def menu():
         print("2. Smoke Test")
         print("3. Regression Test")
         print("4. Quit")
+        print("5. Testing")
         choice = int(input("Enter your choice: "))
         clear_screen()
         
         if choice == 1:
             print("You choose to install new SAA")
-            
         elif choice == 2:
             print("You choose to run smoke test")
-            
         elif choice == 3:
-            print("You choose to regression test")
-            
+            print("You choose to regression test")  
         elif choice == 4:
             print("Bye")
             break
             exit
         else:
             print("Invalid choice. Enter 1-3")
-            menu()
 
 ## Main routine
 menu()
