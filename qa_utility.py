@@ -31,7 +31,9 @@ def menu():
             print("2. Smoke Test")
             print("3. Regression Test")
             print("4. Start RADIUS server")
-            print("5. Testing")
+            print("5. Start/Stop Nagios Server")
+            print("6. Backup")
+            print("7. Execute CIS daily script")
             print("0. Quit")
             choice = int(input("Enter your choice: "))
             clear_screen()
@@ -55,8 +57,8 @@ def hostInfo():
     host_name = socket.gethostname() 
     host_ip = socket.gethostbyname(host_name) 
     home_dir = os.path.expanduser("~")
-    user_name = os.getlogin()
-    print("Username: "+user_name)
+    #user_name = os.getlogin()
+    #print("Username: "+user_name)
     print("Home Dir: "+home_dir)
     print("Hostname: "+host_name)
     print("IP Addr: "+host_ip)
@@ -106,6 +108,15 @@ def readFromFile(filePath):
     with open(file, 'r') as f:
         data = f.read()
 
+def mapShareDrive():
+    print("Mapping drive Q to PAC_Share")
+    os.system("net use q: \\\\bewxp042\PAC_Share")
+    # To show current map drive os.system("net use")
+
+
+def startRadiusServer():
+    os.system('P:\Internal_Tools\RadiusServer\new\.\rad-SAG.bat')
+
 def remoteControl():
     HOST="www.example.org"
     # Ports are handled in ~/.ssh/config since we use OpenSSH
@@ -142,10 +153,12 @@ def remoteControl():
 ############## MAIN ROUTINE ##############
 
 #getListOfFiles('C:\Temp')
-# menu()
+#menu()
+# mapShareDrive()
+os.system('C:\PROGRA~1\PuTTY\plink.exe sdglogin@192.168.5.214 ls -ltr /tmp; hostname; uname')
+# os.system('P:\Internal_Tools\RadiusServer\new\.\rad-SAG.bat')
 
-
-writeToFile('C:\Temp\Test.txt')
+#writeToFile('C:\Temp\Test.txt')
 #directory=os.listdir('C:\\Temp')
 # print(directory)
 # listOfFiles = getListOfFiles('C:\Temp')
