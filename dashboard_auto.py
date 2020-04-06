@@ -1,8 +1,8 @@
 ########################################################
 ##  Author      : Bryan Leong
-##  Date        : 5 June 2019
+##  Date        : 22 July 2019
 ##  Version     : 0.1
-##  Description : 06 April 2020 - menu item change into a function.
+##  Description : Draft version of dashboard_auto. This program is automatic desktop application open and login to different website by itself.
 ########################################################
 import os
 import platform
@@ -39,7 +39,7 @@ def menu():
             clear_screen()
 
             if choice == 1:
-                installSoftware()
+                print("You choose to install new SAA")
             if choice == 2:
                 print("You choose to run smoke test")
             if choice == 3:
@@ -51,9 +51,6 @@ def menu():
         except ValueError:
                 clear_screen()
                 print("You put in invalid option. Try again")
-
-def installSoftware():
-    print("You choose to install new SAA")
 
 def hostInfo():
     print("-------- SYSTEM INFO --------")
@@ -162,7 +159,7 @@ def run_win_cmd(cmd):
 
 ###########################
 
-#run_win_cmd("C:\\Temp\\test.bat&dir")
+run_win_cmd("C:\\Temp\\test.bat&dir")
 
 ############## MAIN ROUTINE ##############
 
@@ -188,7 +185,7 @@ def run_win_cmd(cmd):
 # out, err = process.communicate( commands ) 
 
 #getListOfFiles('C:\Temp')
-menu()
+#menu()
 # mapShareDrive()
 #os.system('C:\PROGRA~1\PuTTY\plink.exe sdglogin@192.168.5.214 ls -ltr /tmp; hostname; uname')
 # os.system('P:\Internal_Tools\RadiusServer\new\.\rad-SAG.bat')
